@@ -37,4 +37,4 @@ alias brno="curl wttr.in/brno"
 alias weather='function _weather(){ curl "wttr.in/$1"; };_weather'
 EDITOR="atom"
 #SQL
-alias ss="sql.server start"
+alias ss="mysql.server start"
