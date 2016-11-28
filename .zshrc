@@ -5,7 +5,7 @@ export ZSH=/Users/Huvik/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="huvik"
+ZSH_THEME="clean"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
@@ -15,7 +15,7 @@ plugins=(atom cake brew git sublime osx npm node theme )
 
 # User configuration
 
-export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+export PATH="/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -36,3 +36,5 @@ alias ip="ifconfig |grep inet"
 alias brno="curl wttr.in/brno"
 alias weather='function _weather(){ curl "wttr.in/$1"; };_weather'
 EDITOR="atom"
+#SQL
+alias ss="sql.server start"
