@@ -38,3 +38,5 @@ alias weather='function _weather(){ curl "wttr.in/$1"; };_weather'
 EDITOR="atom"
 #SQL
 alias ss="mysql.server start"
+#NPM run
+alias r="npm run"
