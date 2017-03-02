@@ -15,6 +15,10 @@ module.exports = {
     // border color (winodw, tabs)
     borderColor: '#010101',
 
+    hyperTabs: {
+      tabIconsColored: true
+    },
+
     // some color overrides. see http://bit.ly/29k1iU2 for
     // the full list
     colors: [
@@ -45,7 +49,8 @@ module.exports = {
   //   `project#1.0.1`
   plugins: [
     'hyperterm-snazzy',
-    'hyperlinks'
+    'hyperlinks',
+    'hyper-tabs-enhanced'
   ],
 
   // in development, you can create a directory under

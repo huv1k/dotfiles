@@ -11,7 +11,7 @@ ZSH_THEME="cloudy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom cake brew git sublime osx npm node theme )
+plugins=(atom cake brew git zsh-autosuggestions osx npm node theme)
 
 # User configuration
 
