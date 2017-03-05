@@ -15,6 +15,8 @@ module.exports = {
     // border color (winodw, tabs)
     borderColor: '#010101',
 
+    shell: '/bin/zsh',
+
     hyperTabs: {
       tabIconsColored: true
     },
