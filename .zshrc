@@ -11,11 +11,11 @@ ZSH_THEME="cloudy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(atom cake brew git zsh-autosuggestions osx npm node theme)
+plugins=(atom cake brew git zsh-autosuggestions osx npm node theme ssh-agent)
 
 # User configuration
 
-export PATH="/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin"
+export PATH="/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:~/.composer/vendor/bin:$HOME/.config/yarn/global/node_modules/.bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
