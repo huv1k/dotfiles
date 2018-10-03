@@ -15,9 +15,9 @@ plugins=(atom cake brew git zsh-autosuggestions osx npm node theme ssh-agent)
 
 # User configuration
 
-export PATH="/usr/local/sbin:/Library/TeX/texbin:/Library/Frameworks/Python.framework/Versions/3.4/bin:/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:~/.composer/vendor/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.composer/vendor/bin;"
+# export PATH="/usr/local/mysql/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:~/.composer/vendor/bin:/usr/local/go/bin:~/.local/bin:~/Library/Python/2.7/bin:~/Library/Python/3.6/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
-
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/huvik/Library/Python/3.6/bin:/usr/local/go/bin:/Users/huvik/go/bin"
 source $ZSH/oh-my-zsh.sh
 
 #Clear screan
@@ -35,8 +35,25 @@ alias ip="ifconfig |grep inet"
 #Weather
 alias brno="curl wttr.in/brno"
 alias weather='function _weather(){ curl "wttr.in/$1"; };_weather'
-EDITOR="atom"
+EDITOR="code"
 #SQL
 alias ss="mysql.server start"
 #NPM run
 alias r="npm run"
+#Graphcool
+alias gc="graphcool"
+alias pr="prisma"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+# google cloud
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh ]] && . /usr/local/lib/node_modules/serverless/node_modules/tabtab/.completions/sls.zsh

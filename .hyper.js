@@ -2,6 +2,7 @@ module.exports = {
   config: {
     // default font size for all tabs
     fontSize: 14,
+    updateChannel: 'stable',
 
     // font family with optional fallbacks
     fontFamily: 'Monaco, "DejaVu Sans Mono", "Lucida Console", monospace',
@@ -50,6 +51,7 @@ module.exports = {
   //   `@company/project`
   //   `project#1.0.1`
   plugins: [
+    // "hyperocean",
     'hyperterm-snazzy',
     'hyperlinks',
     'hyper-tabs-enhanced'
