@@ -1,0 +1,35 @@
+{
+  "Print to console": {
+    "scope": "javascript,typescriptreact",
+    "prefix": "log",
+    "body": ["console.log('$1')", "$2"],
+    "description": "Log output to console"
+  },
+  "React": {
+    "scope": "typescriptreact",
+    "prefix": "re",
+    "body": ["import React from 'react'"]
+  },
+  "Create React Component": {
+    "scope": "typescriptreact",
+    "prefix": "rcc",
+    "body": [
+      "import React, { Component } from 'react'",
+      "",
+      "class ${1:${TM_FILENAME_BASE}} extends Component {\n\tpublic render() {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}",
+      "\nexport default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Crete react component"
+  },
+  "Create React PureComponent": {
+    "scope": "typescriptreact",
+    "prefix": "rcp",
+    "body": [
+      "import React, { PureComponent } from 'react'",
+      "",
+      "class ${1:${TM_FILENAME_BASE}} extends PureComponent {\n\tpublic render() {\n\t\treturn (\n\t\t\t<div>\n\t\t\t\t$0\n\t\t\t</div>\n\t\t)\n\t}\n}",
+      "\nexport default ${1:${TM_FILENAME_BASE}}"
+    ],
+    "description": "Crete react component"
+  }
+}
