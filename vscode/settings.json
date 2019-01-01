@@ -14,5 +14,8 @@
   "editor.minimap.enabled": false,
   "editor.formatOnSave": true,
   "prettier.singleQuote": true,
+  "prettier.bracketSpacing": true,
+  "prettier.printWidth": 80,
+  "prettier.trailingComma": "all",
   "prettier.semi": false
 }
