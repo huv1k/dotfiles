@@ -20,7 +20,6 @@ alias c="clear"
 
 # Folders
 alias p="cd ~/Projects"
-alias s="cd ~/Sites"
 alias d="cd ~/Downloads"
 
 # Git
@@ -34,3 +33,7 @@ alias ip="ifconfig |grep inet"
 
 # Prisma 
 alias pr="prisma"
+
+# Shortcuts
+alias s="yarn start"
+alias e="yarn electron-start"

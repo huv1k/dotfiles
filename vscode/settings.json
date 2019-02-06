@@ -17,5 +17,8 @@
   "prettier.bracketSpacing": true,
   "prettier.printWidth": 80,
   "prettier.trailingComma": "all",
-  "prettier.semi": false
+  "prettier.semi": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "window.zoomLevel": 0
 }

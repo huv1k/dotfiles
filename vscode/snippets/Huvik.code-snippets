@@ -31,5 +31,10 @@
       "\nexport default ${1:${TM_FILENAME_BASE}}"
     ],
     "description": "Crete react component"
+  },
+  "Nexus resolve": {
+    "scope": "typescript",
+    "prefix": "res",
+    "body": ["resolve: async (_, { $1 }, ctx) => {", "$2", "}"]
   }
 }
