@@ -23,6 +23,7 @@ alias p="cd ~/Projects"
 alias d="cd ~/Downloads"
 
 # Git
+alias gs='git status'
 alias ga='git add'
 alias gaa='git add --all'
 alias gcmsg='git commit -m'
