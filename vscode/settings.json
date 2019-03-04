@@ -20,5 +20,6 @@
   "prettier.semi": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "relative",
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "python.jediEnabled": false
 }
