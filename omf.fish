@@ -40,6 +40,7 @@ alias s="yarn start"
 alias e="yarn electron-start"
 
 # Docker
+alias ds="docker stop (docker ps -q)"
 function remove-containers
   docker stop (docker ps -aq)
   docker rm (docker ps -aq)
