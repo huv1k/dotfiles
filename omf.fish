@@ -39,6 +39,9 @@ alias pr="prisma"
 alias s="yarn start"
 alias e="yarn electron-start"
 
+alias cu="rm -rf node_modules && git checkout -f master"
+alias gc="git clean -f"
+
 # Docker
 alias ds="docker stop (docker ps -q)"
 function remove-containers
@@ -46,10 +49,16 @@ function remove-containers
   docker rm (docker ps -aq)
 end
 
-function cleanup-docker
+function docker-cleanup
   remove-containers
   docker network prune -f
   docker rmi -f (docker images --filter dangling=true -qa)
   docker volume rm (docker volume ls --filter dangling=true -q)
   docker rmi -f (docker images -qa)
+end
+
+# Fun stuff
+alias brno="curl wttr.in/brno"
+function weather 
+  curl "wttr.in/$argv"
 end

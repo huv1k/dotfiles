@@ -5,7 +5,6 @@
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
   "workbench.fontAliasing": "antialiased",
-  "workbench.colorTheme": "Monokai",
   "editor.fontWeight": "700",
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.hidesExplorerArrows": true,
@@ -22,9 +21,9 @@
   "typescript.preferences.importModuleSpecifier": "relative",
   "window.zoomLevel": 0,
   "editor.suggestSelection": "first",
-  // "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "search.exclude": {
     "**/build": true,
     "**/dist": true
-  }
+  },
+  "workbench.colorTheme": "Monokai"
 }
