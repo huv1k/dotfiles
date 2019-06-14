@@ -11,7 +11,7 @@
   "material-icon-theme.folders.color": "#42a5f5",
   "workbench.iconTheme": "material-icon-theme",
   "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
+  // "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.bracketSpacing": true,
   "prettier.printWidth": 80,
