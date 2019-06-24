@@ -27,6 +27,8 @@ alias d="cd ~/Downloads"
 
 # Git
 alias gs='git status'
+alias gl='git log --graph --all --oneline --decorate'
+alias gc="git clean -fxd"
 alias ga='git add'
 alias gaa='git add --all'
 alias gcmsg='git commit -m'
@@ -43,7 +45,6 @@ alias s="yarn start"
 alias e="yarn electron-start"
 
 alias cu="rm -rf node_modules && git checkout -f master"
-alias gc="git clean -f"
 
 # Docker
 alias ds="docker stop (docker ps -q)"
