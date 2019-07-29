@@ -27,6 +27,7 @@ alias d="cd ~/Downloads"
 
 # Git
 alias gs='git status'
+alias gb='git branch'
 alias gl='git log --graph --all --oneline --decorate'
 alias gc="git clean -fxd"
 alias ga='git add'
