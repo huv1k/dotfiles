@@ -1,7 +1,7 @@
 # Path to Oh My Fish install.
 set -q XDG_DATA_HOME
-  and set -gx OMF_PATH "$XDG_DATA_HOME/omf"
-  or set -gx OMF_PATH "$HOME/.local/share/omf"
+  and set -gx OMF_PATH '$XDG_DATA_HOME/omf'
+  or set -gx OMF_PATH '$HOME/.local/share/omf'
 
 # Load Oh My Fish configuration.
 source $OMF_PATH/init.fish
@@ -16,39 +16,40 @@ function take
 end
 
 # List
-alias l="ls -a"
+alias l='ls -a'
 
 # Clear screan
-alias c="clear"
+alias c='clear'
 
 # Folders
-alias p="cd ~/Projects"
-alias d="cd ~/Downloads"
+alias p='cd ~/Projects'
+alias d='cd ~/Downloads'
 
 # Git
 alias gs='git status'
 alias gb='git branch'
+alias gc='git checkout'
+alias gp='git pull'
 alias gl='git log --graph --all --oneline --decorate'
-alias gc="git clean -fxd"
 alias ga='git add'
 alias gaa='git add --all'
 alias gcmsg='git commit -m'
-alias gpom="git push origin master"
+alias gpom='git push origin master'
 
 # IP
-alias ip="ifconfig |grep inet"
+alias ip='ifconfig |grep inet'
 
 # Prisma 
-alias pr="prisma"
+alias pr='prisma'
 
 # Shortcuts
-alias s="yarn start"
-alias e="yarn electron-start"
+alias s='yarn start'
+alias e='yarn electron-start'
 
-alias cu="rm -rf node_modules && git checkout -f master"
+alias cu='rm -rf node_modules && git checkout -f master'
 
 # Docker
-alias ds="docker stop (docker ps -q)"
+alias ds='docker stop (docker ps -q)'
 function remove-containers
   docker stop (docker ps -aq)
   docker rm (docker ps -aq)
@@ -63,7 +64,7 @@ function docker-cleanup
 end
 
 # Fun stuff
-alias brno="curl wttr.in/brno"
+alias brno='curl wttr.in/brno'
 function weather 
-  curl "wttr.in/$argv"
+  curl 'wttr.in/$argv'
 end
