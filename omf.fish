@@ -26,6 +26,7 @@ alias p='cd ~/Projects'
 alias d='cd ~/Downloads'
 
 # Git
+alias git='hub'
 alias gs='git status'
 alias gb='git branch'
 alias gc='git checkout'
