@@ -27,6 +27,8 @@ alias d='cd ~/Downloads'
 
 # Git
 alias git='hub'
+alias gh='git push origin HEAD'
+alias gf='git checkout -f master && git pull'
 alias gs='git status'
 alias gb='git branch'
 alias gc='git checkout'
