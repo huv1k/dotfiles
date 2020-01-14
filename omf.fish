@@ -33,6 +33,7 @@ alias gn='git checkout -b'
 alias gs='git status'
 alias gb='git branch'
 alias gc='git checkout'
+alias gr='git reset --soft HEAD~1'
 alias gp='git pull'
 alias gl='git log --graph --all --oneline --decorate'
 alias ga='git add'
@@ -44,7 +45,7 @@ alias gpom='git push origin master'
 alias ip='ifconfig |grep inet'
 
 # Prisma 
-alias pr='prisma'
+alias pr='prisma2'
 
 # Shortcuts
 alias s='yarn start'
