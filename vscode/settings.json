@@ -1,7 +1,7 @@
 {
   "editor.tabSize": 2,
-  "terminal.integrated.fontFamily": "Dank Mono",
-  "editor.fontFamily": "Dank Mono",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrains Mono",
   "editor.fontSize": 13,
   "editor.fontLigatures": true,
   "workbench.fontAliasing": "antialiased",

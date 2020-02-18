@@ -23,8 +23,8 @@ brew cask install notion
 
 ## Setup settings
 git clone https://github.com/huv1k/dotfiles ~/Projects/00dotfiles
-rm ~/.config/fish/conf.d/omf.fish
-
+rm -rf ~/Library/ApplicationSupport/Code/User
+ln -s ~/Projects/00dotfiles/vscode ~/Library/ApplicationSupport/Code/User
 
 ## Screenshots
 setup_screenshots () {

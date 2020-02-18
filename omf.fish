@@ -1,3 +1,7 @@
+# Path
+
+set -gx PATH ~/Projects/10productboard/pb-toolkit/docker/bin $PATH
+
 # Utils
 function take 
   mkdir -p $argv; cd $argv
