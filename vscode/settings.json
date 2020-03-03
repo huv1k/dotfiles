@@ -11,7 +11,7 @@
   "material-icon-theme.folders.color": "#42a5f5",
   "workbench.iconTheme": "material-icon-theme",
   "editor.minimap.enabled": false,
-  // "editor.formatOnSave": true,
+  "editor.formatOnSave": true,
   "prettier.singleQuote": true,
   "prettier.trailingComma": "es5",
   "prettier.semi": false,
@@ -24,28 +24,11 @@
     "**/dist": true
   },
   "workbench.colorTheme": "Monokai",
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  // "[json]": {
-  //   "editor.defaultFormatter": "esbenp.prettier-vscode"
-  // },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line"
+  "gitlens.hovers.currentLine.over": "line",
+  "files.exclude": {
+    "**/.yarn": true
+  }
 }
