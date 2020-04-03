@@ -23,12 +23,12 @@
     "**/build": true,
     "**/dist": true
   },
-  "workbench.colorTheme": "Monokai",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "gitlens.currentLine.enabled": false,
   "gitlens.hovers.currentLine.over": "line",
   "files.exclude": {
     "**/.yarn": true
-  }
+  },
+  "workbench.colorTheme": "Framer Syntax"
 }
