@@ -46,6 +46,11 @@ alias e='yarn electron-start'
 
 alias cu='rm -rf node_modules && git checkout -f master'
 
+# Unset enviroment variable
+function unset
+  set --erase $argv
+end
+
 # Docker
 alias ds='docker stop (docker ps -q)'
 function remove-containers
