@@ -30,5 +30,8 @@
   "files.exclude": {
     "**/.yarn": true
   },
-  "workbench.colorTheme": "Framer Syntax"
+  "workbench.colorTheme": "Monokai",
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }

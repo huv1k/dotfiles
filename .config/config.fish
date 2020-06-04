@@ -33,6 +33,7 @@ alias gaa='git add --all'
 alias gcmsg='git commit -m'
 alias gpom='git push origin master'
 alias stash='git stash'
+alias fixup="git commit --fixup"
 
 # IP
 alias ip='ifconfig |grep inet'
@@ -69,5 +70,5 @@ end
 # Fun stuff
 alias brno='curl wttr.in/brno'
 function weather 
-  curl 'wttr.in/$argv'
+  curl 'wttr.in/'$argv
 end
