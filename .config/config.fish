@@ -33,7 +33,7 @@ alias gaa='git add --all'
 alias gcmsg='git commit -m'
 alias gpom='git push origin master'
 alias stash='git stash'
-alias fixup="git commit --fixup"
+alias f="git commit --fixup"
 
 # IP
 alias ip='ifconfig |grep inet'
