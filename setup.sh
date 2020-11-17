@@ -18,12 +18,23 @@ chsh -s /usr/local/bin/fish
 ## Brew utils
 brew install tig
 brew install fzf
+brew install node
+brew install tree
+brew install z
+brew install gh
+brew install yarn
 
 ## Software
 brew cask install visual-studio-code
 brew cask install caprine
 brew cask install notion
-
+brew cask install discord
+brew cask install iterm2
+brew cask install vlc
+brew cask install brave-browser
+brew cask install figma
+brew cask install spotify
+brew cask install steam
 
 ## Setup settings
 git clone https://github.com/huv1k/dotfiles ~/Projects/00dotfiles
