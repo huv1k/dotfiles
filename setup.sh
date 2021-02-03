@@ -2,8 +2,8 @@
 
 screenshots_location=~/Documents/Screenshots/
 
-## Setup projects folder
-mkdir ~/Projects
+## Setup developer folder
+mkdir ~/Developer
 
 ## Install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -12,8 +12,9 @@ mkdir ~/Projects
 brew install fish
 sudo echo /usr/local/bin/fish >> /etc/shells
 chsh -s /usr/local/bin/fish
-#curl -L https://get.oh-my.fish | fish
-#omf theme shellder
+## Fisher
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install jukben/z
 
 ## Brew utils
 brew install tig
@@ -25,21 +26,22 @@ brew install gh
 brew install yarn
 
 ## Software
-brew cask install visual-studio-code
-brew cask install caprine
-brew cask install notion
-brew cask install discord
-brew cask install iterm2
-brew cask install vlc
-brew cask install brave-browser
-brew cask install figma
-brew cask install spotify
-brew cask install steam
+brew install --cask visual-studio-code
+brew install --cask caprine
+brew install --cask notion
+brew install --cask discord
+brew install --cask iterm2
+brew install --cask vlc
+brew install --cask brave-browser
+brew install --cask figma
+brew install --cask spotify
+brew install --cask steam
 
 ## Setup settings
-git clone https://github.com/huv1k/dotfiles ~/Projects/00dotfiles
-rm -rf ~/Library/ApplicationSupport/Code/User
-ln -s ~/Projects/00dotfiles/vscode ~/Library/ApplicationSupport/Code/User
+# git clone https://github.com/huv1k/dotfiles ~/Developer/00dotfiles
+rm -rf ~/Library/Application\ Support/Code/User
+ln -s ~/Developer/00dotfiles/vscode ~/Library/Application\ Support/Code/User
+ln -s ~/Developer/00dotfiles/.config/config.fish ~/.config/fish/config.fish
 
 ## Show path in finder
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder

@@ -1,6 +1,6 @@
 # Path
 
-set -gx PATH ~/Projects/10productboard/pb-toolkit/docker/bin $PATH
+set -gx PATH ~/Developer/20productboard/pb-toolkit/docker/bin $PATH
 
 # Utils
 function take 
@@ -14,8 +14,8 @@ alias l='ls -a'
 alias c='clear'
 
 # Folders
-alias p='cd ~/Projects'
-alias d='cd ~/Downloads'
+alias d='cd ~/Developer'
+alias dl='cd ~/Downloads'
 
 # Git
 alias gh='git push origin HEAD'

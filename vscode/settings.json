@@ -30,8 +30,9 @@
   "files.exclude": {
     "**/.yarn": true
   },
-  "workbench.colorTheme": "Monokai",
+  "workbench.colorTheme": "GitHub Dark",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
-  }
+  },
+  "telemetry.enableTelemetry": false
 }
