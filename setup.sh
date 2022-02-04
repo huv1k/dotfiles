@@ -7,6 +7,8 @@ mkdir ~/Developer
 
 ## Install brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+## Add brew to PATH
+export PATH=/opt/homebrew/bin:$PATH
 
 ## Fish
 brew install fish
