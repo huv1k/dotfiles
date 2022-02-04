@@ -1,6 +1,6 @@
 # Path
 
-set -gx PATH ~/Developer/20productboard/pb-toolkit/docker/bin $PATH
+set -gx PATH ~/Developer/20productboard/pb-toolkit/docker/bin /opt/homebrew/bin ~/.rover/bin $PATH
 
 # Utils
 function take 
@@ -18,7 +18,6 @@ alias d='cd ~/Developer'
 alias dl='cd ~/Downloads'
 
 # Git
-alias gh='git push origin HEAD'
 alias gf='git checkout -f master && git pull'
 alias gd='git diff'
 alias gn='git checkout -b'
@@ -71,4 +70,13 @@ end
 alias brno='curl wttr.in/brno'
 function weather 
   curl 'wttr.in/'$argv
+end
+
+function fb
+  git rev-parse HEAD > /dev/null 2>&1 || return
+
+  git branch --color=always --all --sort=-committerdate |
+  cut -c 3- |
+  fzf --height 50% --ansi --no-multi --preview-window right:65% --preview 'git log -n 50 --color=always --date=short --pretty="format:%C(auto)%cd %h%d %s" {}' |
+  xargs git checkout
 end

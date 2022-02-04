@@ -17,7 +17,7 @@
   "prettier.semi": false,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "typescript.preferences.importModuleSpecifier": "relative",
-  "window.zoomLevel": 0,
+  "typescript.referencesCodeLens.enabled": true,
   "editor.suggestSelection": "first",
   "search.exclude": {
     "**/build": true,
@@ -34,5 +34,43 @@
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  "telemetry.enableTelemetry": false
+  "[toml]": {
+    "editor.defaultFormatter": "be5invis.toml"
+  },
+  "editor.guides.bracketPairs": true,
+  "telemetry.telemetryLevel": "off",
+  "editor.inlineSuggest.enabled": true,
+  "cSpell.userWords": ["productboard"],
+  "workbench.editor.untitled.hint": "hidden",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "graphql"
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "yaml": true,
+    "plaintext": false,
+    "markdown": false
+  },
+  "githubPullRequests.queries": [
+    {
+      "label": "Waiting For My Review",
+      "query": "is:open review-requested:${user}"
+    },
+    {
+      "label": "Assigned To Me",
+      "query": "is:open assignee:${user}"
+    },
+    {
+      "label": "Created By Me",
+      "query": "is:open author:${user}"
+    },
+    {
+      "label": "Mentioned Me",
+      "query": "is:open mentions:${user}"
+    }
+  ]
 }

@@ -6,7 +6,7 @@ screenshots_location=~/Documents/Screenshots/
 mkdir ~/Developer
 
 ## Install brew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ## Fish
 brew install fish
@@ -21,6 +21,7 @@ brew install tig
 brew install fzf
 brew install node
 brew install tree
+brew install n
 brew install z
 brew install gh
 brew install yarn
