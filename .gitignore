@@ -1,3 +1,7 @@
 .DS_store
 globalStorage
 workspaceStorage
+History
+
+# Fish secrets
+.config/fish/secrets.fish

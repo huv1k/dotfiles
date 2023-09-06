@@ -1,6 +1,11 @@
 # Path
 
-set -gx PATH ~/Developer/20productboard/pb-toolkit/docker/bin /opt/homebrew/bin ~/.rover/bin $PATH
+set -gx PATH /opt/homebrew/bin $PATH
+
+zoxide init fish | source
+
+# Brewfile location 
+export HOMEBREW_BREWFILE=$HOME/.Brewfile
 
 # Utils
 function take 
@@ -36,15 +41,6 @@ alias f="git commit --fixup"
 
 # IP
 alias ip='ifconfig |grep inet'
-
-# Prisma 
-alias pr='prisma2'
-
-# Shortcuts
-alias s='yarn start'
-alias e='yarn electron-start'
-
-alias cu='rm -rf node_modules && git checkout -f master'
 
 # Unset enviroment variable
 function unset

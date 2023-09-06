@@ -1,47 +1,39 @@
 {
-  "editor.tabSize": 2,
-  "terminal.integrated.fontFamily": "JetBrains Mono",
-  "editor.fontFamily": "JetBrains Mono",
-  "editor.fontSize": 13,
-  "editor.fontLigatures": true,
-  "workbench.fontAliasing": "antialiased",
-  "editor.fontWeight": "700",
-  "material-icon-theme.folders.theme": "classic",
-  "material-icon-theme.hidesExplorerArrows": true,
-  "material-icon-theme.folders.color": "#42a5f5",
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.minimap.enabled": false,
-  "editor.formatOnSave": true,
-  "prettier.singleQuote": true,
-  "prettier.trailingComma": "es5",
-  "prettier.semi": false,
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.importModuleSpecifier": "relative",
-  "typescript.referencesCodeLens.enabled": true,
-  "editor.suggestSelection": "first",
-  "search.exclude": {
-    "**/build": true,
-    "**/dist": true
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
-  "files.exclude": {
-    "**/.yarn": true
-  },
-  "workbench.colorTheme": "GitHub Dark",
   "[prisma]": {
     "editor.defaultFormatter": "Prisma.prisma"
   },
-  "[toml]": {
-    "editor.defaultFormatter": "be5invis.toml"
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
   },
+  "catppuccin.accentColor": "lavender",
+  "catppuccin.customUIColors": {
+    "all": {
+      "editorWarning.foreground": "yellow"
+    }
+  },
+  "cSpell.userWords": ["esmodules", "productboard"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.fontWeight": "700",
+  "editor.formatOnSave": true,
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
   "editor.guides.bracketPairs": true,
-  "telemetry.telemetryLevel": "off",
+  "editor.hover.sticky": true,
   "editor.inlineSuggest.enabled": true,
-  "cSpell.userWords": ["productboard"],
-  "workbench.editor.untitled.hint": "hidden",
+  "editor.largeFileOptimizations": false,
+  "editor.minimap.enabled": false,
+  "editor.smoothScrolling": true,
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "errorLens.enabled": true,
+  "errorLens.enabledDiagnosticLevels": ["warning", "info", "hint", "error"],
+  "eslint.run": "onSave",
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -49,28 +41,35 @@
     "typescriptreact",
     "graphql"
   ],
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": false,
-    "markdown": false
+  "files.exclude": {
+    "**/.cache": true,
+    "**/.yarn": true,
+    "**/eslint-report/*": true
   },
-  "githubPullRequests.queries": [
-    {
-      "label": "Waiting For My Review",
-      "query": "is:open review-requested:${user}"
-    },
-    {
-      "label": "Assigned To Me",
-      "query": "is:open assignee:${user}"
-    },
-    {
-      "label": "Created By Me",
-      "query": "is:open author:${user}"
-    },
-    {
-      "label": "Mentioned Me",
-      "query": "is:open mentions:${user}"
-    }
-  ]
+  "git.mergeEditor": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "redhat.telemetry.enabled": false,
+  "references.preferredLocation": "view",
+  "search.exclude": {
+    "**/build": true,
+    "**/dist": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "terminal.integrated.scrollback": 50000,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "vsicons.dontShowNewVersionMessage": true,
+  "window.commandCenter": true,
+  "workbench.colorTheme": "Catppuccin Mocha",
+  "workbench.editor.untitled.hint": "hidden",
+  "workbench.fontAliasing": "antialiased",
+  "workbench.iconTheme": "catppuccin-perfect-dark",
+  "workbench.settings.editor": "json"
 }
