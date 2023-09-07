@@ -3,6 +3,8 @@
 set -gx PATH /opt/homebrew/bin $PATH
 
 zoxide init fish | source
+fnm env --use-on-cd | source
+source ~/.config/fish/secrets.fish
 
 # Brewfile location 
 export HOMEBREW_BREWFILE=$HOME/.Brewfile
@@ -11,6 +13,8 @@ export HOMEBREW_BREWFILE=$HOME/.Brewfile
 function take 
   mkdir -p $argv; cd $argv
 end
+
+alias dot='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
 
 # List
 alias l='ls -a'
