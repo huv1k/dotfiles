@@ -2,16 +2,32 @@ tap "homebrew/aliases"
 tap "homebrew/bundle"
 tap "productboard/tools"
 tap "remotemobprogramming/brew"
+# Zstandard is a real-time compression algorithm
+brew "zstd"
+# Color management engine supporting ICC profiles
+brew "little-cms2"
+# Image format providing lossless and lossy compression for web images
+brew "webp"
+# New file format for still image compression
+brew "jpeg-xl"
+# Codec library for encoding and decoding AV1 video streams
+brew "aom"
+# Improved shell history for zsh and bash
+brew "atuin"
 # Use AWS IAM credentials to authenticate to Kubernetes
 brew "aws-iam-authenticator"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.11"
+# Text processing system for reStructuredText
+brew "docutils"
 # Official Amazon AWS command-line interface
 brew "awscli"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Collection of portable C++ source libraries
 brew "boost"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
 # Linux/OSX/FreeBSD resource monitor
 brew "bpytop"
 # Interpreted, interactive, object-oriented programming language
@@ -22,6 +38,8 @@ brew "cloc"
 brew "direnv"
 # More intuitive version of du in rust
 brew "dust"
+# Asynchronous event library
+brew "libevent"
 # Collection of reusable C++ library artifacts developed at Facebook
 brew "folly"
 # Shared library for Watchman and Eden projects
@@ -48,20 +66,32 @@ brew "fish"
 brew "fnm"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Library for encoding and decoding .avif files
+brew "libavif"
+# Graphics library to dynamically manipulate images
+brew "gd"
+# Toolkit for image loading and pixel buffer manipulation
+brew "gdk-pixbuf"
 # GitHub command-line tool
 brew "gh"
 # Distributed revision control system
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.10"
 # Generate introspection data for GObject libraries
 brew "gobject-introspection"
+# Image manipulation
+brew "netpbm"
+# GNU triangulated surface library
+brew "gts"
+# Library to render SVG files using Cairo
+brew "librsvg"
 # Graph visualization software from AT&T and Bell Labs
 brew "graphviz"
 # Kubernetes package manager
 brew "helm"
+# User-friendly cURL replacement (command-line HTTP client)
+brew "httpie"
 # Command-line benchmarking tool
 brew "hyperfine"
 # Lightweight and flexible command-line JSON processor
@@ -72,6 +102,12 @@ brew "k9s"
 brew "kubernetes-cli"
 # Tool that can switch between kubectl contexts easily and create aliases
 brew "kubectx"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Provides library functionality for FIDO U2F & FIDO 2.0, including USB
+brew "libfido2"
+# C library for reading, creating, and modifying zip archives
+brew "libzip"
 # Simple tool to make locally trusted development certificates
 brew "mkcert"
 # Node version management
@@ -79,9 +115,15 @@ brew "n"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
+brew "node"
+# Platform built on V8 to build network applications
 brew "node@16"
 # Manage multiple Node.js versions
 brew "nvm"
+# Fast, disk space efficient package manager
+brew "pnpm"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # CLI for managing and maintaining data graphs with Apollo Studio
 brew "rover"
 # Rust toolchain installer
@@ -117,7 +159,7 @@ brew "zoxide"
 brew "productboard/tools/pbctl"
 # Swift handover for remote mobs using git. mob is a CLI tool written in GO. It keeps your master branch clean and creates WIP commits on mob-session branch.
 brew "remotemobprogramming/brew/mob"
-# Command-line helper for the 1Password password manager
+# Command-line interface for 1Password
 cask "1password-cli"
 # GPU-accelerated terminal emulator
 cask "alacritty"
@@ -173,6 +215,7 @@ vscode "dbaeumer.vscode-eslint"
 vscode "eamodio.gitlens"
 vscode "esbenp.prettier-vscode"
 vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
 vscode "GraphQL.vscode-graphql-execution"
 vscode "hashicorp.terraform"
 vscode "jasonnutter.vscode-codeowners"
