@@ -27,11 +27,24 @@ ln -s ~/Developer/00dotfiles/fish/config.fish ~/.config/fish/config.fish
 ln -s ~/Developer/00dotfiles/fish/secrets.fish ~/.config/fish/secret.fish
 ln -s ~/Developer/00dotfiles/.tmux.conf ~/.tmux.conf
 
-## Show path in finder
+## Show path in finder 
 defaults write com.apple.finder _FXShowPosixPathInTitle -bool true; killall Finder
+## Automatically hide dock
+defaults write com.apple.dock autohide -bool true; killall Dock
 
 ## Configure git
 git config --global push.default current
+
+# Setup brew aliases
+brew alias
+for f in ~/.brew-aliases/* ; do
+  ln -s $f "$(brew --prefix)/bin/brew-$(basename $f)"
+done
+
+# Setup bundle
+HOMEBREW_BREWFILE=~/.Brewfile
+brew bundle
+brew sync
 
 ## Screenshots
 setup_screenshots () {
