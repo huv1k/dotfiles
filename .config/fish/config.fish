@@ -6,11 +6,11 @@ zoxide init fish | source
 fnm env --use-on-cd | source
 source ~/.config/fish/secrets.fish
 
-# Brewfile location 
+# Brewfile location
 export HOMEBREW_BREWFILE=$HOME/.Brewfile
 
 # Utils
-function take 
+function take
   mkdir -p $argv; cd $argv
 end
 
@@ -42,6 +42,8 @@ alias gcmsg='git commit -m'
 alias gpom='git push origin master'
 alias stash='git stash'
 alias f="git commit --fixup"
+alias p="pnpm"
+alias ls="eza"
 
 # IP
 alias ip='ifconfig |grep inet'
@@ -68,7 +70,7 @@ end
 
 # Fun stuff
 alias brno='curl wttr.in/brno'
-function weather 
+function weather
   curl 'wttr.in/'$argv
 end
 
@@ -83,3 +85,11 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+[ -f ~/.inshellisense/key-bindings.fish ] && source ~/.inshellisense/key-bindings.fish
+# pnpm
+set -gx PNPM_HOME "/Users/lukas.huvar/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
