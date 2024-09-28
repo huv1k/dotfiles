@@ -42,8 +42,10 @@ alias gcmsg='git commit -m'
 alias gpom='git push origin master'
 alias stash='git stash'
 alias f="git commit --fixup"
+alias g="git"
 alias p="pnpm"
 alias ls="eza"
+alias lg="lazygit"
 
 # IP
 alias ip='ifconfig |grep inet'
