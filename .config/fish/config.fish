@@ -14,7 +14,8 @@ function take
   mkdir -p $argv; cd $argv
 end
 
-alias dot='/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
+alias dot='zed ~/.dotfiles'
+alias rebuild-nix='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#hvk'
 
 # List
 alias l='ls -a'
@@ -95,3 +96,7 @@ if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

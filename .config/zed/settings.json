@@ -7,23 +7,48 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "icon_theme": "Catppuccin Latte",
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "assistant": {
+    "default_profile": "write",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-20240620"
+      "model": "claude-3-7-sonnet-latest"
     },
+    "always_allow_tool_actions": true,
     "version": "2"
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
   },
   "base_keymap": "VSCode",
   "theme": "Catppuccin Macchiato",
   "ui_font_family": "Zed Plex Mono",
-  "auto_signature_help": true,
-  "buffer_font_size": 14,
+  // "auto_signature_help": true,
+  "buffer_font_size": 14.0,
   "ui_font_size": 14,
   "terminal": {
     "font_size": 13
   },
   "tabs": {
     "file_icons": true
+  },
+  "soft_wrap": "editor_width",
+  "lsp": {
+    "nil": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt"]
+        }
+      }
+    }
+  },
+  "code_actions_on_format": {
+    "source.fixAll.biome": true,
+    "source.organizeImports.biome": true
   }
 }

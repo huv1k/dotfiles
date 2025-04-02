@@ -1,0 +1,30 @@
+[user]
+    email = lukas@huvar.cz
+    name = Lukáš Huvar
+
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+
+[push]
+    default = current
+
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --branches
+    sync = !git pull origin $(git symbolic-ref --short HEAD)
+    cln = !git reset --hard HEAD && git clean -fd
+    up = !git checkout -f $(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5) && git pull
+    amd = !git commit --amend --no-edit
+    p = push
+
+[core]
+    pager = delta
+
+[delta]
+    side-by-side = true
+    syntax-theme = "Catppuccin Macchiato"
+
+[includeIf "gitdir:/Users/lukashuvar/Developer/productboard/"]
+    path = /Users/lukashuvar/Developer/productboard/.gitconfig

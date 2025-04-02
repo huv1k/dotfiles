@@ -1,0 +1,14 @@
+[
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-e": "workspace::ToggleZoom"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-n": "workspace::NewTerminal"
+    }
+  }
+]

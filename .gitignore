@@ -1,9 +1,4 @@
 .DS_store
-globalStorage
-workspaceStorage
-History
-# code
-.vscode/extensions/
 
 # Fish secrets
 .config/fish/secrets.fish
