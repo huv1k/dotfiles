@@ -1,6 +1,7 @@
 [user]
     email = lukas@huvar.cz
     name = Lukáš Huvar
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAn087pnb7dXx3zOpZO39wDYmtdrPmXnqWkj0vjUicDu
 
 [filter "lfs"]
     required = true
@@ -18,6 +19,7 @@
     up = !git checkout -f $(git remote show origin | grep 'HEAD branch' | cut -d' ' -f5) && git pull
     amd = !git commit --amend --no-edit
     p = push
+    cp = cherry-pick
 
 [core]
     pager = delta
@@ -28,3 +30,9 @@
 
 [includeIf "gitdir:/Users/lukashuvar/Developer/productboard/"]
     path = /Users/lukashuvar/Developer/productboard/.gitconfig
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true

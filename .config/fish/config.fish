@@ -47,6 +47,7 @@ alias g="git"
 alias p="pnpm"
 alias ls="eza"
 alias lg="lazygit"
+alias r="pnpm nx run"
 
 # IP
 alias ip='ifconfig |grep inet'
@@ -90,13 +91,25 @@ set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
 [ -f ~/.inshellisense/key-bindings.fish ] && source ~/.inshellisense/key-bindings.fish
-# pnpm
-set -gx PNPM_HOME "/Users/lukas.huvar/Library/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+function z-zed --description "Navigate using zoxide and open zed editor"
+    if count $argv > /dev/null
+        z $argv && zed .
+    else
+        echo "Usage: z-zed [directory]"
+    end
+end
+
+# Create an alias for the function
+alias zz="z-zed"
+
+# pnpm
+set -gx PNPM_HOME "/Users/lukashuvar/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

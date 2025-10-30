@@ -7,18 +7,114 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "context_servers": {
+    "chakra-ui": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "@chakra-ui/react-mcp"]
+    },
+    "mcp-server-context7": {
+      "source": "extension",
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    }
+  },
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null
+    },
+    "enabled_in_text_threads": false
+  },
   "icon_theme": "Catppuccin Latte",
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "assistant": {
-    "default_profile": "write",
+  "search": {
+    "button": false
+  },
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-7-sonnet-thinking"
+    },
+    "profiles": {
+      "agent-+-mcp": {
+        "name": "Agent + MCP",
+        "tools": {
+          "web_search": true,
+          "thinking": true,
+          "terminal": true,
+          "read_file": true,
+          "open": true,
+          "now": true,
+          "move_path": true,
+          "list_directory": true,
+          "grep": true,
+          "find_path": true,
+          "fetch": true,
+          "edit_file": true,
+          "diagnostics": true,
+          "delete_path": true,
+          "create_directory": true,
+          "copy_path": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "chakra-ui": {
+            "tools": {
+              "v2_to_v3_code_review": true,
+              "list_components": true,
+              "installation": true,
+              "get_theme": true,
+              "get_component_props": true,
+              "get_component_example": true,
+              "customize_theme": true
+            }
+          },
+          "productboard-mcp-server": {
+            "tools": {
+              "update_pm_entities": true,
+              "retrieve_configuration_pm_entities": false,
+              "retrieve_pm_entities": false,
+              "delete_pm_entities": false,
+              "list_with_advanced_filter_pm_entities": false,
+              "list_all_pm_entities": true,
+              "create_pm_entities": false,
+              "create_notes": false,
+              "list_api_endpoints": true,
+              "invoke_api_endpoint": true,
+              "get_api_endpoint_schema": true
+            }
+          },
+          "prisma-mcp": {
+            "tools": {
+              "migrate-status": true,
+              "migrate-reset": true,
+              "migrate-dev": true,
+              "Prisma-Studio": true,
+              "Prisma-Postgres-account-status": false,
+              "Prisma-Login": false,
+              "Create-Prisma-Postgres-Database": false
+            }
+          },
+          "mcp-server-context7": {
+            "tools": {
+              "resolve-library-id": true,
+              "get-library-docs": true
+            }
+          }
+        }
+      }
+    },
+    "default_profile": "agent-+-mcp",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
+      "model": "claude-sonnet-4"
     },
-    "always_allow_tool_actions": true,
-    "version": "2"
+    "always_allow_tool_actions": true
   },
   "diagnostics": {
     "inline": {
@@ -26,7 +122,7 @@
     }
   },
   "base_keymap": "VSCode",
-  "theme": "Catppuccin Macchiato",
+  "theme": "Catppuccin Mocha",
   "ui_font_family": "Zed Plex Mono",
   // "auto_signature_help": true,
   "buffer_font_size": 14.0,
@@ -46,9 +142,5 @@
         }
       }
     }
-  },
-  "code_actions_on_format": {
-    "source.fixAll.biome": true,
-    "source.organizeImports.biome": true
   }
 }

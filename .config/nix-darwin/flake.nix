@@ -76,18 +76,12 @@
             "yaak"
             "zed"
             "imageoptim"
-            # "pbctl"
+            "jordanbaird-ice"
           ];
           masApps = {
             "Affinity Designer" = 824171161;
             "Affinity Photo" = 824183456;
           };
-          # taps = [
-          #   "productboard/tools"
-          # ];
-          # extraConfig = ''
-          #   tap "productboard/tools", "git@github.com:productboard/homebrew-tools.git"
-          # '';
         };
         # Necessary for using flakes on this system.
         nix.settings.experimental-features = "nix-command flakes";
@@ -101,6 +95,8 @@
         system.activationScripts.postUserActivation.text = ''
           # Following line should allow us to avoid a logout/login cycle when changing settings
           /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+          # Disable language indicator popup
+          defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool NO
         '';
 
         # TODO: change display scale
@@ -116,17 +112,32 @@
             tilesize = 28;
             show-recents = false;
             static-only = true;
+            # Disable hot corners
+            wvous-tl-corner = 1;
+            wvous-bl-corner = 1;
+            wvous-tr-corner = 1;
+            wvous-br-corner = 1;
           };
           CustomUserPreferences = {
             "com.apple.symbolichotkeys" = {
               AppleSymbolicHotKeys = {
                 # Disable Screenshots
+                # CMD + SHIFT + 3: Take screenshot of entire screen
+                "20" = { enabled = false; };
+                # CMD + SHIFT + 4: Take screenshot of selected area
                 "28" = { enabled = false; };
                 "29" = { enabled = false; };
+                # CMD + SHIFT + 5: Take screenshot or record screen
                 "30" = { enabled = false; };
                 "31" = { enabled = false; };
                 # Disable input sources switching
-                "60" = { enabled = false; };
+                "60" = {
+                  enabled = 1;
+                  value = {
+                    parameters = [ 32 49 1572864 ];
+                    type = "standard";
+                  };
+                };
                 "61" = { enabled = false; };
                 # Disable 'Cmd + Space' for Spotlight Search
                 "64" = { enabled = false; };
