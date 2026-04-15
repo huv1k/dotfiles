@@ -14,13 +14,14 @@ function take
   mkdir -p $argv; cd $argv
 end
 
-alias dot='zed ~/.dotfiles'
-alias rebuild-nix='darwin-rebuild switch --flake ~/.dotfiles/.config/nix-darwin#hvk'
+alias zdot='zed ~/.dotfiles'
+alias dot='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
+alias rebuild-nix='darwin-rebuild switch --flake ~/.config/nix-darwin#hvk'
 
 # List
 alias l='ls -a'
 
-# Clear screan
+# Clear screan2
 alias c='clear'
 
 # Folders
