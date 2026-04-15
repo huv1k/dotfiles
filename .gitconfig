@@ -1,7 +1,7 @@
 [user]
     email = lukas@huvar.cz
     name = Lukáš Huvar
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAn087pnb7dXx3zOpZO39wDYmtdrPmXnqWkj0vjUicDu
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiFPXMGQc3ZoDKZ1aY4kfafqDduCd3JkyS/iIoWOccE
 
 [filter "lfs"]
     required = true
@@ -30,6 +30,9 @@
 
 [includeIf "gitdir:/Users/lukashuvar/Developer/productboard/"]
     path = /Users/lukashuvar/Developer/productboard/.gitconfig
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+
 [gpg]
 	format = ssh
 [gpg "ssh"]

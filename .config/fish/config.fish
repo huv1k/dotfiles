@@ -1,6 +1,7 @@
 # Path
 
 set -gx PATH /opt/homebrew/bin $PATH
+set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 zoxide init fish | source
 fnm env --use-on-cd | source
