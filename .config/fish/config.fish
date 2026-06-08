@@ -6,9 +6,17 @@ set -g fish_greeting
 set -gx PATH /opt/homebrew/bin $PATH
 set -gx SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
-zoxide init fish | source
-fnm env --use-on-cd | source
-source ~/.config/fish/secrets.fish
+if command -q zoxide
+  zoxide init fish | source
+end
+
+if command -q fnm
+  fnm env --use-on-cd | source
+end
+
+if test -f ~/.config/fish/secrets.fish
+  source ~/.config/fish/secrets.fish
+end
 
 # Brewfile location
 export HOMEBREW_BREWFILE=$HOME/.Brewfile
@@ -18,9 +26,9 @@ function take
   mkdir -p $argv; cd $argv
 end
 
-alias zdot='zed ~/.dotfiles'
-alias dot='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
-alias dot-build='sudo darwin-rebuild switch --flake ~/Developer/dotfiles/.config/nix-darwin#hvk'
+alias zdot='zed ~/Developer/dotfiles'
+alias dot='git -C ~/Developer/dotfiles'
+alias dot-build='sudo darwin-rebuild switch --flake ~/Developer/dotfiles/.config/nix-darwin#huvik'
 
 # List
 alias l='ls -a'
@@ -114,7 +122,7 @@ alias zz="z-zed"
 
 # pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm"
-set -gx PATH (string match -v -- "/Users/lukashuvar/Library/pnpm" $PATH)
+set -gx PATH (string match -v -- "$PNPM_HOME" $PATH)
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end
