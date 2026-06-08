@@ -3,7 +3,10 @@
     "bindings": {
       "cmd-shift-g": [
         "task::Spawn",
-        { "task_name": "LazyGit", "reveal_target": "center" }
+        {
+          "task_name": "LazyGit",
+          "reveal_target": "center"
+        }
       ]
     }
   },
@@ -17,6 +20,15 @@
     "context": "Terminal",
     "bindings": {
       "cmd-n": "workspace::NewTerminal"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "shift-enter": [
+        "terminal::SendText",
+        "\u001b\r"
+      ]
     }
   }
 ]

@@ -1,3 +1,6 @@
+# Disable greeting
+set -g fish_greeting
+
 # Path
 
 set -gx PATH /opt/homebrew/bin $PATH
@@ -17,7 +20,7 @@ end
 
 alias zdot='zed ~/.dotfiles'
 alias dot='git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME'
-alias rebuild-nix='darwin-rebuild switch --flake ~/.config/nix-darwin#hvk'
+alias dot-build='sudo darwin-rebuild switch --flake ~/Developer/dotfiles/.config/nix-darwin#hvk'
 
 # List
 alias l='ls -a'
@@ -110,7 +113,8 @@ end
 alias zz="z-zed"
 
 # pnpm
-set -gx PNPM_HOME "/Users/lukashuvar/Library/pnpm"
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+set -gx PATH (string match -v -- "/Users/lukashuvar/Library/pnpm" $PATH)
 if not string match -q -- $PNPM_HOME $PATH
   set -gx PATH "$PNPM_HOME" $PATH
 end

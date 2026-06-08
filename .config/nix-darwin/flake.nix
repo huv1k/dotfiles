@@ -42,7 +42,9 @@
 
           nixpkgs.config.allowUnfree = true;
           environment.systemPackages = [
+            pkgs.bun
             pkgs.bat
+            pkgs.cloc
             pkgs.delta
             pkgs.dust
             pkgs.eza
@@ -56,15 +58,19 @@
             pkgs.jq
             pkgs.lazygit
             pkgs.mas
+            pkgs.nil
+            pkgs.pnpm
             pkgs.nixd
             pkgs.nixfmt
             pkgs.stow
+            pkgs.ripgrep
             pkgs.tilt
             pkgs.tree
             pkgs.vim
             pkgs.watchman
             pkgs.zoxide
             pkgs.zx
+            pkgs.postgresql_18
             llm-pkgs.amp
           ];
 
@@ -79,26 +85,34 @@
               "claude"
               "claude-code"
               "cleanshot"
+              "nkzw-tech/tap/codiff"
+              "conductor"
               "discord"
               "ghostty"
               "imageoptim"
               "jordanbaird-ice"
+              "linear"
+              "mysides"
               "notion"
               "notion-calendar"
               "orbstack"
               "raycast"
               "shortcat"
+              "slack"
               "spotify"
               "steam"
               "tableplus"
               "tailscale-app"
               "telegram"
               "vlc"
+              "wispr-flow"
               "yaak"
               "zed"
             ];
             masApps = {
-              "Canary Mail" = 1236045954;
+              # "Numbers" = 361304891;
+              # "Pages" = 361309726;
+              # "Canary Mail" = 1236045954;
             };
             onActivation = {
               autoUpdate = true;
@@ -110,6 +124,8 @@
           programs.fish.enable = true;
 
           # Set Git commit hash for darwin-version.
+          environment.systemPath = [ "/usr/local/bin" ];
+
           system.configurationRevision = self.rev or self.dirtyRev or null;
 
           system.activationScripts.postActivation.text = ''
@@ -120,6 +136,12 @@
             # Create user directories
             mkdir -p /Users/${username}/Developer
             mkdir -p /Users/${username}/Documents/Screenshots
+            # Suppress "Last login" message
+            touch /Users/${username}/.hushlogin
+            # Add Developer folder to Finder sidebar
+            if ! sudo -u ${username} /usr/local/bin/mysides list | grep -q "Developer"; then
+              sudo -u ${username} /usr/local/bin/mysides add Developer file:///Users/${username}/Developer
+            fi
           '';
 
           # TODO: change display scale

@@ -7,6 +7,38 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "cli_default_open_behavior": "new_window",
+  "agent_servers": {
+    "amp-acp": {
+      "type": "registry"
+    },
+    "codex-acp": {
+      "type": "registry"
+    },
+    "claude-acp": {
+      "type": "registry"
+    }
+  },
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "fish": true,
+    "html": true,
+    "nix": true,
+    "toml": true
+  },
   "context_servers": {
     "chakra-ui": {
       "source": "custom",
@@ -36,6 +68,7 @@
     "button": false
   },
   "agent": {
+    "dock": "left",
     "inline_assistant_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-thinking"
