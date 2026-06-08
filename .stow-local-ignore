@@ -1,6 +1,9 @@
 \.git
+\.gitignore
 \.github
+\.context
 setup\.sh
 \.stow-local-ignore
+\.config/nix-darwin/result
 README\.md
 LICENSE

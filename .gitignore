@@ -1,4 +1,5 @@
 .DS_store
+.config/nix-darwin/result
 
 # Fish secrets
 .config/fish/secrets.fish

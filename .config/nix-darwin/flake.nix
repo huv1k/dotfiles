@@ -25,17 +25,36 @@
       nixpkgs,
     }:
     let
-      username = "huvik";
+      envUsername = builtins.getEnv "DOTFILES_USERNAME";
+      envUid = builtins.getEnv "DOTFILES_UID";
+      envHome = builtins.getEnv "DOTFILES_HOME";
+      username = if envUsername == "" then "huvik" else envUsername;
+      userHome = if envHome == "" then "/Users/${username}" else envHome;
+      userUid = if envUid == "" then 501 else builtins.fromJSON envUid;
       llm-pkgs = llm-agents.packages."aarch64-darwin";
+      darwinSystem = nix-darwin.lib.darwinSystem {
+        modules = [
+          configuration
+          nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = false;
+              user = username;
+              autoMigrate = true;
+            };
+          }
+        ];
+      };
       configuration =
         { pkgs, ... }:
         {
           # Ensure determinate systems manages installation and updates
           nix.enable = false;
           users.users.${username} = {
-            home = "/Users/${username}";
+            home = userHome;
             shell = pkgs.fish;
-            uid = 501;
+            uid = userUid;
           };
 
           users.knownUsers = [ username ];
@@ -134,13 +153,13 @@
             # Disable language indicator popup
             sudo -u ${username} defaults write kCFPreferencesAnyApplication TSMLanguageIndicatorEnabled -bool NO
             # Create user directories
-            mkdir -p /Users/${username}/Developer
-            mkdir -p /Users/${username}/Documents/Screenshots
+            mkdir -p ${userHome}/Developer
+            mkdir -p ${userHome}/Documents/Screenshots
             # Suppress "Last login" message
-            touch /Users/${username}/.hushlogin
+            touch ${userHome}/.hushlogin
             # Add Developer folder to Finder sidebar
             if ! sudo -u ${username} /usr/local/bin/mysides list | grep -q "Developer"; then
-              sudo -u ${username} /usr/local/bin/mysides add Developer file:///Users/${username}/Developer
+              sudo -u ${username} /usr/local/bin/mysides add Developer file://${userHome}/Developer
             fi
           '';
 
@@ -239,20 +258,8 @@
     in
     {
       # Build darwin flake using:
-      # $ darwin-rebuild build --flake .#hvk
-      darwinConfigurations."hvk" = nix-darwin.lib.darwinSystem {
-        modules = [
-          configuration
-          nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = false;
-              user = username;
-              autoMigrate = true;
-            };
-          }
-        ];
-      };
+      # $ darwin-rebuild build --flake .#huvik
+      darwinConfigurations."huvik" = darwinSystem;
+      darwinConfigurations."hvk" = darwinSystem;
     };
 }
