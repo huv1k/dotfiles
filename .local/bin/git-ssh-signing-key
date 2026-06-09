@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+account="${OP_ACCOUNT:-my.1password.com}"
+key_ref="${GIT_SSH_SIGNING_KEY_REF:-op://Development/SSH Key/public key}"
+
+public_key="$(op read --account "$account" "$key_ref")"
+printf 'key::%s\n' "$public_key"
