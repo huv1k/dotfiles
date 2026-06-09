@@ -1,7 +1,6 @@
 [user]
     email = lukas@huvar.cz
     name = Lukáš Huvar
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFiFPXMGQc3ZoDKZ1aY4kfafqDduCd3JkyS/iIoWOccE
 
 [filter "lfs"]
     required = true
@@ -37,5 +36,6 @@
 	format = ssh
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	defaultKeyCommand = sh -c 'exec "$HOME/.local/bin/git-ssh-signing-key"'
 [commit]
 	gpgsign = true
