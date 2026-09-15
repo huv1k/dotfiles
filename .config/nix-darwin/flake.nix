@@ -12,7 +12,12 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    brew-src = {
+      url = "github:Homebrew/brew/7.0.0";
+      flake = false;
+    };
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.inputs.brew-src.follows = "brew-src";
     llm-agents.url = "github:numtide/llm-agents.nix";
   };
 
@@ -20,6 +25,7 @@
     inputs@{
       self,
       nix-darwin,
+      brew-src,
       nix-homebrew,
       llm-agents,
       nixpkgs,
@@ -36,14 +42,21 @@
         modules = [
           configuration
           nix-homebrew.darwinModules.nix-homebrew
-          {
-            nix-homebrew = {
-              enable = true;
-              enableRosetta = false;
-              user = username;
-              autoMigrate = true;
-            };
-          }
+          (
+            { pkgs, ... }:
+            {
+              nix-homebrew = {
+                enable = true;
+                package = brew-src // {
+                  name = "brew-7.0.0";
+                  version = "7.0.0";
+                };
+                enableRosetta = false;
+                user = username;
+                autoMigrate = true;
+              };
+            }
+          )
         ];
       };
       configuration =
@@ -60,11 +73,14 @@
           users.knownUsers = [ username ];
 
           nixpkgs.config.allowUnfree = true;
+          # Homebrew is stored without its Git metadata by nix-homebrew.
+          environment.variables.HOMEBREW_VERSION = "7.0.0";
           environment.systemPackages = [
             pkgs.bun
             pkgs.bat
             pkgs.cloc
             pkgs.delta
+            pkgs.direnv
             pkgs.dust
             pkgs.eza
             pkgs.fd
@@ -104,7 +120,6 @@
               "claude"
               "claude-code"
               "cleanshot"
-              "nkzw-tech/tap/codiff"
               "conductor"
               "discord"
               "ghostty"
@@ -136,11 +151,14 @@
             onActivation = {
               autoUpdate = true;
               upgrade = true;
-              cleanup = "zap";
+              cleanup = "none";
             };
           };
           # Enable alternative shell support in nix-darwin.
-          programs.fish.enable = true;
+          programs.fish = {
+            enable = true;
+            shellInit = "set -gx HOMEBREW_VERSION 7.0.0";
+          };
 
           # Set Git commit hash for darwin-version.
           environment.systemPath = [ "/usr/local/bin" ];
