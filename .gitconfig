@@ -1,6 +1,8 @@
 [user]
     email = lukas@huvar.cz
     name = Lukáš Huvar
+	# Public key only; op-ssh-sign keeps the private key in 1Password.
+	signingkey = ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCscgCwi1Nw0+/LYkG97EJpbkPrxFypTrhCbC1fpoDFhaS2h5COVX7LTG0H0V2G3fjUx/ApcBn/72pS8hgdzxr4f25+hc3syLlNbznb/yrP/DPhxxNyyawez22cZutCncd5oRLbo+3JOqcNw+XxFUDTn6Ls1VrLzI1rF4bEJa44Zlnr7g+clRvWCInqU6Qml6i1MWqL97rmGNGnIWOtt7g8mZyzQlGV7dF9+yTeaqTIAfrkNbSaWNjuYknD2HcFx5+oR/zk/h+IGNSLYqGtZzTaZfxxlzFPedzi8GWrS7eoEOYAacV/dImPgcFfM9FFw7f8FoHT91sYUXZBLemgH4xxNd5k7fCC4T1Xph4b8B1kNlj/51Hf9C7Nv21pNrnUReVdGcteOaynenYBcZ1qIAuooiRXt++F/hSV5jT/VqRvOjOk+IkpYlTdBxKKqoFKtWnQlVl0SHpm6CHhtPveSXjDWVEGaQHo5oYp9Epvnz0G8kSLK7uaO90ne0kf9uQJfqrpkoJQBskXLKVFPobkjFGoJMdA4GC6/ccWr5+kKu87KhMV+kN0fQXXc4bWwD+bSnd5qrdnB2fJCmoVUo/CUv6FzUrX5BDpyQ9opYk19ag+/eItBwWTXCvEAtxLZ8u77faaCl19AwUE/8I2tdsrCmCX01ixehrGlOJihbuW/JVc4w==
 
 [filter "lfs"]
     required = true
@@ -36,6 +38,5 @@
 	format = ssh
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
-	defaultKeyCommand = sh -c 'exec "$HOME/.local/bin/git-ssh-signing-key"'
 [commit]
 	gpgsign = true
