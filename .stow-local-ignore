@@ -9,3 +9,5 @@ README\.md
 LICENSE
 treefmt\.toml
 \.githooks
+^/AGENTS\.md
+\.DS_Store

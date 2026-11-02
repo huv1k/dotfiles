@@ -1,5 +1,5 @@
 ---
-name: pr-plan
+name: address-pr-review
 description: Fetch PR comments and reviews from GitHub and prepare an actionable plan to address the feedback. Use when the user wants to act on PR review feedback.
 disable-model-invocation: false
 user-invocable: true
@@ -8,7 +8,7 @@ argument-hint: [pr-number-or-url]
 arguments: [pr]
 ---
 
-# PR Review Plan
+# Address PR Review
 
 Fetch all comments and reviews for the given pull request and create an actionable plan to address the feedback.
 
@@ -26,6 +26,7 @@ Derive `{owner}/{repo}` from `gh repo view --json nameWithOwner --jq .nameWithOw
 ## Step 2: Analyze feedback
 
 Categorize every piece of feedback into:
+
 - **Must fix**: Requested changes, blocking comments, explicit change requests
 - **Should fix**: Suggestions, improvements, non-blocking but valuable
 - **Questions**: Questions that need a response or clarification

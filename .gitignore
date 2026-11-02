@@ -3,3 +3,6 @@
 
 # Fish secrets
 .config/fish/secrets.fish
+
+#Claude synced skills
+.claude/skills/synced

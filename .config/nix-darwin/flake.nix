@@ -104,6 +104,7 @@
             pkgs.pnpm
             pkgs.postgresql_18
             pkgs.ripgrep
+            pkgs.rtk
             pkgs.stow
             pkgs.tilt
             pkgs.tree

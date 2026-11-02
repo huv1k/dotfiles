@@ -141,6 +141,40 @@ enable_git_hooks() {
   run_git -C "$DOTFILES_DIR" config core.hooksPath .githooks
 }
 
+# ~/.claude/settings.json is machine-local (apps write hooks and plugins into
+# it), so only merge in the settings every machine should share.
+configure_claude() {
+  local settings_file="$HOME/.claude/settings.json"
+
+  info "Disabling Claude commit and PR attribution..."
+  mkdir -p "$(dirname "$settings_file")"
+  [[ -s "$settings_file" ]] || echo '{}' >"$settings_file"
+
+  local updated
+  updated="$(jq '.attribution = {"commit": "", "pr": ""}' "$settings_file")"
+  printf '%s\n' "$updated" >"$settings_file"
+}
+
+# RTK.md and its @RTK.md import are stowed from the repo, so only hooks are left.
+# Codex is patched with jq because `rtk init --codex` would rewrite the
+# symlinked CLAUDE.md/RTK.md with machine-specific paths.
+configure_rtk() {
+  info "Configuring RTK hooks for Claude and Codex..."
+  rtk init -g --auto-patch
+
+  local hooks_file="$HOME/.codex/hooks.json"
+  local hook='{"matcher":"Bash","hooks":[{"type":"command","command":"rtk hook codex"}]}'
+  mkdir -p "$(dirname "$hooks_file")"
+  [[ -s "$hooks_file" ]] || echo '{"hooks":{}}' >"$hooks_file"
+
+  local updated
+  updated="$(jq --argjson hook "$hook" '
+    if any(.hooks.PreToolUse[]?.hooks[]?; .command == "rtk hook codex") then .
+    else .hooks.PreToolUse += [$hook] end
+  ' "$hooks_file")"
+  printf '%s\n' "$updated" >"$hooks_file"
+}
+
 main() {
   require_clean_mac_target
   ensure_nix
@@ -150,6 +184,8 @@ main() {
   switch_nix_darwin
   stow_dotfiles
   enable_git_hooks
+  configure_claude
+  configure_rtk
 
   info "Done. Dotfiles are symlinked from $DOTFILES_DIR into $HOME."
 }
