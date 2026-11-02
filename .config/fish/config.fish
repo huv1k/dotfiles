@@ -29,6 +29,7 @@ end
 alias zdot='zed ~/Developer/dotfiles'
 alias dot='git -C ~/Developer/dotfiles'
 alias dot-build='sudo darwin-rebuild switch --flake ~/Developer/dotfiles/.config/nix-darwin#huvik'
+alias dot-update='nix flake update --flake ~/Developer/dotfiles/.config/nix-darwin && dot-build'
 
 # List
 alias l='ls -a'

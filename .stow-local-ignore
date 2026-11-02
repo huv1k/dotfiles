@@ -7,3 +7,5 @@ setup\.sh
 \.config/nix-darwin/result
 README\.md
 LICENSE
+treefmt\.toml
+\.githooks

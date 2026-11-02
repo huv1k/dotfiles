@@ -25,10 +25,7 @@
   {
     "context": "Terminal",
     "bindings": {
-      "shift-enter": [
-        "terminal::SendText",
-        "\u001b\r"
-      ]
+      "shift-enter": ["terminal::SendText", "\u001b\r"]
     }
   }
 ]

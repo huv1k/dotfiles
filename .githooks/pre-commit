@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Format staged files with treefmt (see treefmt.toml) and re-stage them.
+set -euo pipefail
+
+command -v treefmt >/dev/null 2>&1 || {
+  echo "pre-commit: treefmt not found; run dot-build first (or commit with --no-verify)." >&2
+  exit 1
+}
+
+files=()
+while IFS= read -r -d '' file; do
+  files+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACMR -z)
+[[ ${#files[@]} -eq 0 ]] && exit 0
+
+# Files that also have unstaged edits can't be re-staged safely.
+partial=()
+while IFS= read -r -d '' file; do
+  partial+=("$file")
+done < <(git diff --name-only -z -- "${files[@]}")
+
+treefmt --quiet --on-unmatched=debug -- "${files[@]}"
+
+changed=()
+while IFS= read -r -d '' file; do
+  changed+=("$file")
+done < <(git diff --name-only -z -- "${files[@]}")
+
+for file in "${changed[@]}"; do
+  for p in "${partial[@]}"; do
+    if [[ "$file" == "$p" ]]; then
+      echo "pre-commit: treefmt reformatted partially staged files; review and stage them, then commit again:" >&2
+      printf '  %s\n' "${partial[@]}" >&2
+      exit 1
+    fi
+  done
+done
+
+[[ ${#changed[@]} -gt 0 ]] && git add -- "${changed[@]}"
+exit 0

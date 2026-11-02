@@ -76,11 +76,14 @@
           # Homebrew is stored without its Git metadata by nix-homebrew.
           environment.variables.HOMEBREW_VERSION = "7.0.0";
           environment.systemPackages = [
-            pkgs.bun
+            # keep-sorted start
+            pkgs.awscli2
             pkgs.bat
+            pkgs.bun
             pkgs.cloc
             pkgs.delta
             pkgs.direnv
+            pkgs.doppler
             pkgs.dust
             pkgs.eza
             pkgs.fd
@@ -91,28 +94,43 @@
             pkgs.gitleaks
             pkgs.httpie
             pkgs.jq
+            pkgs.keep-sorted
             pkgs.lazygit
             pkgs.mas
             pkgs.nil
-            pkgs.pnpm
             pkgs.nixd
             pkgs.nixfmt
-            pkgs.stow
+            pkgs.oxfmt
+            pkgs.pnpm
+            pkgs.postgresql_18
             pkgs.ripgrep
+            pkgs.stow
             pkgs.tilt
             pkgs.tree
+            pkgs.treefmt
             pkgs.vim
             pkgs.watchman
             pkgs.zoxide
             pkgs.zx
-            pkgs.postgresql_18
+            # keep-sorted end
             llm-pkgs.amp
           ];
 
           system.primaryUser = username;
           homebrew = {
             enable = true;
+            taps = [
+              "coder/coder"
+            ];
+            brews = [
+              # keep-sorted start
+              "apify-cli"
+              "coder/coder/coder"
+              "imagemagick"
+              # keep-sorted end
+            ];
             casks = [
+              # keep-sorted start
               "1password"
               "1password-cli"
               "betterdisplay"
@@ -123,9 +141,10 @@
               "conductor"
               "discord"
               "ghostty"
+              "hiddenbar"
               "imageoptim"
-              "jordanbaird-ice"
               "linear"
+              "mongodb-compass"
               "mysides"
               "notion"
               "notion-calendar"
@@ -139,19 +158,26 @@
               "tailscale-app"
               "telegram"
               "vlc"
-              "wispr-flow"
               "yaak"
               "zed"
+              # keep-sorted end
             ];
             masApps = {
-              # "Numbers" = 361304891;
-              # "Pages" = 361309726;
-              # "Canary Mail" = 1236045954;
+              # keep-sorted start
+              "BIMx Desktop" = 6446137693;
+              "Canary Mail" = 1236045954;
+              "Numbers" = 361304891;
+              "Pages" = 361309726;
+              # keep-sorted end
             };
             onActivation = {
-              autoUpdate = true;
+              # Auto-update breaks masApps under nix-homebrew's brew wrapper:
+              # https://github.com/zhaofengli/nix-homebrew/issues/189
+              # Brew itself is pinned by nix-homebrew; only package data needs refreshing.
+              autoUpdate = false;
+              extraEnv.HOMEBREW_FORCE_API_AUTO_UPDATE = "1";
               upgrade = true;
-              cleanup = "none";
+              cleanup = "uninstall";
             };
           };
           # Enable alternative shell support in nix-darwin.

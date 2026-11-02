@@ -136,6 +136,11 @@ stow_dotfiles() {
   fi
 }
 
+enable_git_hooks() {
+  info "Enabling repo git hooks..."
+  run_git -C "$DOTFILES_DIR" config core.hooksPath .githooks
+}
+
 main() {
   require_clean_mac_target
   ensure_nix
@@ -144,6 +149,7 @@ main() {
   backup_old_bare_repo
   switch_nix_darwin
   stow_dotfiles
+  enable_git_hooks
 
   info "Done. Dotfiles are symlinked from $DOTFILES_DIR into $HOME."
 }

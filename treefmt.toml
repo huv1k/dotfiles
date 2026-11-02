@@ -1,0 +1,16 @@
+excludes = [".claude/skills/synced/**", "*.lock"]
+
+[formatter.keep-sorted]
+command = "keep-sorted"
+includes = ["*"]
+priority = 0
+
+[formatter.nixfmt]
+command = "nixfmt"
+includes = ["*.nix"]
+priority = 1
+
+[formatter.oxfmt]
+command = "oxfmt"
+includes = ["*.json", "*.jsonc", "*.md", "*.toml", "*.yaml", "*.yml"]
+priority = 1
